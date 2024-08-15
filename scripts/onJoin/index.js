@@ -1,7 +1,7 @@
 //event that is triggered upon a player joining a server for the first time
 console.warn('onJoin.js loaded');
 
-import {BiomeType, BiomeTypes, world} from "@minecraft/server"
+import {world} from "@minecraft/server"
 import wait from "../functions/wait"
 import giveClock from "../functions/give-clock-on-join";
 import playerPortals from "../functions/player-portals";
