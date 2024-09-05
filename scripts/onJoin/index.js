@@ -6,6 +6,7 @@ import wait from "../functions/wait"
 import giveClock from "../functions/give-clock-on-join";
 import playerPortals from "../functions/player-portals";
 
+
 world.afterEvents.playerSpawn.subscribe(async({player,initialSpawn}) => {
     if (initialSpawn){
    
@@ -33,7 +34,7 @@ world.afterEvents.playerSpawn.subscribe(async({player,initialSpawn}) => {
   }
 
   else if (!initialSpawn){
-        giveClock(player)
+    giveClock(player)
         
     }
 
@@ -69,6 +70,9 @@ world.afterEvents.entityHitEntity.subscribe((event) => {
      }
     
 });
+
+
+
 
 
 

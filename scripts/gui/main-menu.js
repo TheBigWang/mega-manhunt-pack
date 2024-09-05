@@ -20,7 +20,7 @@ const main = (player) => {
             team = "§7Unassigned"
         }
 
-        form.title("§l§b§k???§r §l§0WangTrak§6+ §0§oV1.0 §b§k???")
+        form.title("§l§b§k???§r §l§0WangTrak§6+ §b§k???")
         form.body(`Greetings §a${player.nameTag}§f!\nTeam: ${team}`) 
         
         
