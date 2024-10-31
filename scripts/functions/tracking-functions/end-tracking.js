@@ -2,7 +2,7 @@
 import {system} from "@minecraft/server";
 import trackingIntervalIds from "./tracking-interval-ids";
 import playSound from "../playSound";
-const endTrackingForPlayer = (player) => {
+const endTrackingForPlayer = async (player) => {
     // Construct keys for tracking and title intervals
     const trackingKey = `${player.nameTag}_tracking`;
     const titleKey = `${player.nameTag}_title`;
@@ -29,11 +29,11 @@ const endTrackingForPlayer = (player) => {
        
         
         try{
-            player.runCommandAsync(`/tellraw ${player.nameTag} {"rawtext":[{"text":"§eTracking ended."}]}`);
+            await player.runCommandAsync(`tellraw ${player.nameTag} {"rawtext":[{"text":"§eTracking ended."}]}`);
             
         }
         catch (error){
-            player.runCommandAsync(`/tellraw "${player.nameTag}" {"rawtext":[{"text":"§eTracking ended."}]}`);
+            await player.runCommandAsync(`tellraw "${player.nameTag}" {"rawtext":[{"text":"§eTracking ended."}]}`);
             
         }
         playSound(player, "random.burp");
@@ -42,21 +42,21 @@ const endTrackingForPlayer = (player) => {
     
     else {
         try{
-            player.runCommandAsync(`/tellraw ${player.nameTag} {"rawtext":[{"text":"§eNo tracking to end."}]}`);
+            await player.runCommandAsync(`tellraw ${player.nameTag} {"rawtext":[{"text":"§eNo tracking to end."}]}`);
         }
         catch (error){
-        player.runCommandAsync(`/tellraw "${player.nameTag}" {"rawtext":[{"text":"§eNo tracking to end."}]}`);
+        await player.runCommandAsync(`tellraw "${player.nameTag}" {"rawtext":[{"text":"§eNo tracking to end."}]}`);
         }
         
     }
 
     // Always clear the title to ensure no errors and consistent state
     try{
-        player.runCommandAsync(`/titleraw ${player.nameTag} clear`);
+        await player.runCommandAsync(`titleraw ${player.nameTag} clear`);
 
     }
     catch (error){
-        player.runCommandAsync(`/titleraw "${player.nameTag}" clear`);
+        await player.runCommandAsync(`titleraw "${player.nameTag}" clear`);
 
     }
     

@@ -7,8 +7,8 @@ const teams = (player) => {
     let teamsForm = new ActionFormData();
     teamsForm.title("§l§b§k???§r §l§0Teams Menu §b§k???");
     teamsForm.body("Select a team below");
-    teamsForm.button("§9Speed Runner");
-    teamsForm.button("§cHunter");
+    teamsForm.button("§9Team Diddy");
+    teamsForm.button("§cTeam Filly");
     
     
     teamsForm.button("§0Back");

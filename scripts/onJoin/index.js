@@ -12,8 +12,16 @@ world.afterEvents.playerSpawn.subscribe(async({player,initialSpawn}) => {
    
     
     await wait(20)
-    player.runCommandAsync(`/titleraw ${player.nameTag} times 10 9999999 10`)
-    player.runCommandAsync(`/titleraw ${player.nameTag} title {"rawtext":[{"text":"\n"}]}`)
+    try{
+        await player.runCommandAsync(`titleraw ${player.nameTag} times 10 9999999 10`)
+        await player.runCommandAsync(`titleraw ${player.nameTag} title {"rawtext":[{"text":"\n"}]}`)
+
+    }
+    catch(error){
+        await player.runCommandAsync(`titleraw "${player.nameTag}" times 10 9999999 10`)
+        await player.runCommandAsync(`titleraw "${player.nameTag}" title {"rawtext":[{"text":"\n"}]}`)
+
+    }
     giveClock(player)
     player.removeTag("Speedrunner")
     player.removeTag("Hunter")

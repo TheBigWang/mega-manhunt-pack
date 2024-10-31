@@ -40,12 +40,12 @@ const clearAndSetInterval = async (player, intervalName, action, rate) => {
 const runTracking = async (player, tickRate, targetplayer,titleRate) => {
 
     try{
-        player.runCommandAsync(`/titleraw ${player.nameTag} title {"rawtext":[{"text":"\n"}]}`);
+        await player.runCommandAsync(`titleraw ${player.nameTag} title {"rawtext":[{"text":"\n"}]}`);
 
 
     }
     catch (error){
-        player.runCommandAsync(`/titleraw "${player.nameTag}" title {"rawtext":[{"text":"\n"}]}`);
+        await player.runCommandAsync(`titleraw "${player.nameTag}" title {"rawtext":[{"text":"\n"}]}`);
 
     
     }
@@ -75,11 +75,11 @@ const runTracking = async (player, tickRate, targetplayer,titleRate) => {
     }
     else {
         try{
-            player.runCommandAsync(`/tellraw ${player.nameTag} {"rawtext":[{"text":"§eOnly Hunters can track players!"}]}`);
+            await player.runCommandAsync(`tellraw ${player.nameTag} {"rawtext":[{"text":"§eOnly Hunters can track players!"}]}`);
 
         }
         catch (error){
-            player.runCommandAsync(`/tellraw "${player.nameTag}" {"rawtext":[{"text":"§eOnly Hunters can track players!"}]}`);
+           await player.runCommandAsync(`tellraw "${player.nameTag}" {"rawtext":[{"text":"§eOnly Hunters can track players!"}]}`);
 
         }
     }
